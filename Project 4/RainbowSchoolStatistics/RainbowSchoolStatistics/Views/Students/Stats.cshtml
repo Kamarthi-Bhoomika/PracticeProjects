@@ -1,0 +1,52 @@
+﻿@model RainbowSchoolStatistics.Models.Statistics
+
+@{
+    ViewBag.Title = "Stats";
+}
+<h2>Statistics</h2>
+
+<div>
+    <h4>Student Statistics</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Total Students
+        </dt>
+        <dd>
+            @Model.StudentCount
+        </dd>
+        <dt>
+            Passed Percentage
+        </dt>
+        <dd>
+            @Model.PassedPercentage
+        </dd>
+        <dt>
+            Student with Maximum Marks
+        </dt>
+        <dd>
+            @Model.MaximumMarks.StudentName
+            @Model.MaximumMarks.Marks
+        </dd>
+
+        <dt>
+            Student with Minimum Marks
+        </dt>
+        <dd>
+            @Model.MinimumMarks.StudentName
+            @Model.MinimumMarks.Marks
+        </dd>
+
+        <dt>
+            Students with Less than 65 Marks
+        </dt>
+        <dd>
+            @foreach (var student in Model.LessThan65Marks)
+            {
+                <span>@student.StudentName </span>
+                <span>@student.Marks</span>
+                <br />
+            }
+        </dd>
+    </dl>
+</div>
